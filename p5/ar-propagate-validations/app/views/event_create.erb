@@ -1,0 +1,14 @@
+<h2>Make a new event!</h2>
+<script type="text/javascript" src="js/datepicker.js"></script>
+
+<form action="/events/create" method="post">
+  Event Name: <input type="text" name="title">
+  <%= @errors[:title].join if @errors && !@errors[:title].empty?  %><br>
+  Organizer: <input type="text" name="organizer_name">
+  <%= @errors[:organizer_name].join if @errors && !@errors[:organizer_name].empty? %><br>
+  Contact Email <input type="text" name="organizer_email">
+  <%=@errors[:organizer_email].join if @errors && !@errors[:organizer_email].empty? %><br>
+  Date: <input type="text" name="date" data-date-format="mm/dd/yyyy" id="datepicker">
+  <%= @errors[:date].join if @errors && !@errors[:date].empty? %><br>
+  <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,26 @@
+  $(document).ready(function() {
+     console.log("doc ready")
+    $('#roller button.add').on('click', makeDie(){
+      console.log("add click")
+    });
+
+    $('#roller button.roll').on('click', rollDice(){
+       console.log("roll click")
+      });
+  });
+
+  function makeDie(){
+     console.log("makeDie")
+    $('.dice').append('<div class="die">0</div>');
+  }
+
+  function rollDice(){
+     console.log("rollDice")
+    $('.die').each(setValue(k, die);
+  }
+
+  function setValue(k, die){
+     console.log("setValue")
+        var value = Math.floor((Math.random()*6)+1);
+        $(die).text(value);
+  }

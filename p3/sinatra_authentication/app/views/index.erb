@@ -1,0 +1,10 @@
+<div class="container">
+
+<% if current_user %>
+  <% @all_users.each do |u| %>
+    <%= u.name %></br>
+  <% end %>
+<% else %>
+  <h1>Welcome to login-purgatory</h1>
+<% end %>
+</div>

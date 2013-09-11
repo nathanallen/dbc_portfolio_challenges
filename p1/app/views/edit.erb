@@ -1,0 +1,15 @@
+<div>
+<% unless @note.nil? %>
+  <form action="/note/<%= @note.id %>/edit/" method="post">
+    <input type="hidden" name="_method" value="put"> 
+    <textarea name="title"><%= @note.title %></textarea></br>
+    <textarea name="text"><%= @note.text %></textarea>
+    <input type="submit">
+  </form>
+    <form action="/note/<%= @id %>/" method="post">
+    <input type="hidden" name="_method" value="delete"> 
+    <input type="submit" value="Delete it!"> </form>
+<% else %>
+  <p>Note not found.</p>
+<% end %>
+</div>

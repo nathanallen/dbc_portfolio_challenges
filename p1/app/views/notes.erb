@@ -1,0 +1,6 @@
+<div>
+  <% @notes.each do |n| %>
+  <p><b><a href="/note/<%= n.id %>/"> <%= n.title %></a></b><br>
+  <%= n.text %><br></p>
+  <% end %>
+</div>
