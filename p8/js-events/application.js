@@ -7,34 +7,38 @@ $(document).ready(function() {
   }
 
   function makeTodoItem(){
-    var t = new Todo()
-    list.push(t)
-    t.deleteListener()
-    //t.completeListener()
+    var t = new Todo();
+    list.push(t);
+    t.addDeleteListener();
   }
 
   function Todo(){
-    this.text = $('input.todo').val()
-    this.item = $('.todo_list').append(buildTodo(this.text))
-    //this.complete = false
+    var title = $('input.todo').val();
+    this.item = buildTodo(title);
+    $('.todo_list').prepend(this.item);
+    //this.item = $('.todo_list').prepend(buildTodo(title));  //Bad!
   }
 
-  // Todo.prototype.completeListener = function(){
+  // Todo.prototype.addCompleteListener = function(){
   //   console.log("setting complete listener")
-  // //  this.complete = true
   //   //$('a.delete').on('click', deleter)
   // }
 
-  Todo.prototype.deleteListener = function(){
-    console.log("setting delete listener")
-    this.item[0].addEventListener("click", function(){this.remove()})
-
+  Todo.prototype.addDeleteListener = function() {
+    console.log("setting delete listener");
+    this.item.on('click', '.delete', function() {
+      var $todo = $(this).closest('.todo');
+      console.log($todo);
+      //console.log($(this).closest('ul'));
+      
+    });
+    
   }
 
-  Todo.prototype.listener = function (){
-    console.log(this.item[0])
-    //this.item[0].addEventListener("click", function(){console.log("clicked")})
-  }
+  // Todo.prototype.listener = function (){
+  //   console.log(this.item[0])
+  //   //this.item[0].addEventListener("click", function(){console.log("clicked")})
+  // }
 
 
   function buildTodo(todoName) {
