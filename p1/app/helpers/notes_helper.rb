@@ -9,7 +9,7 @@ helpers do
     @notes = Note.all
   end
 
-  def destory_it
+  def destroy_it
     @note.destroy
   end
 

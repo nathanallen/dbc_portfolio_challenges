@@ -12,7 +12,7 @@ helpers do
 
   def authenticate
     @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
+    if !@user.nil? && (@user.password == params[:password])
       get_token
       redirect '/'
     else

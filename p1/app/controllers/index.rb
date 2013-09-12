@@ -11,7 +11,7 @@ end
 delete '/note/:id/' do
   get_note_and_id
   destroy_it
-  erb :note_by_id
+  redirect '/'
 end
 
 get '/note/:id/edit/' do
